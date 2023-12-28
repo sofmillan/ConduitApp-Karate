@@ -3,7 +3,8 @@ Feature: Tests for the home page
 
     Background: Define URL
         Given url 'https://api.realworld.io/api/'
-
+    
+    @debug
     Scenario: Get all tags
         Given path 'tags'
         When method Get

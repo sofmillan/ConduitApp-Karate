@@ -12,7 +12,7 @@ Feature: Articles
 
         Given header Authorization = 'Token '+token
         Given path 'articles/'
-        And request {"article":{"title": "Narrow Maze", "description": "Random topic A", "body": ".", "tagList": []}}
+        And request {"article":{"title": "Narrow 2Maze", "description": "Random topic A", "body": ".", "tagList": []}}
         When method Post
         Then status 201
-        And match response.article.title == 'Narrow Maze'
+        And match response.article.title == 'Narrow 2Maze'
