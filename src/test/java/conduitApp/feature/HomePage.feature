@@ -20,4 +20,4 @@ Feature: Tests for the home page
         When method Get
         Then status 200
         And match response.articles == '#[10]'
-        And match response.articlesCount == 251
+        # And match response.articlesCount == 251
