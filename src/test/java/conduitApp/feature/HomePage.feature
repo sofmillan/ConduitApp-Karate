@@ -9,7 +9,7 @@ Feature: Tests for the home page
         Given path 'tags'
         When method Get
         Then status 200
-        And match response.tags contains ['welcome', 'ipsum']
+        And match response.tags contains ['enim', 'est']
         And match response.tags !contains 'truck'
         And match response.tags == '#array'
         And match each response.tags == '#string'
@@ -20,4 +20,4 @@ Feature: Tests for the home page
         When method Get
         Then status 200
         And match response.articles == '#[10]'
-        And match response.articlesCount == 197
+        And match response.articlesCount == 251
