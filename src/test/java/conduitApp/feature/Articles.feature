@@ -6,10 +6,10 @@ Feature: Articles
     Scenario: Create a new article
      
         Given path 'articles/'
-        And request {"article":{"title": "NaevisZZZ", "description": "Random topic A", "body": ".", "tagList": []}}
+        And request {"article":{"title": "Naevi", "description": "Random topic A", "body": ".", "tagList": []}}
         When method Post
         Then status 201
-        And match response.article.title == 'NaevisZZZ'
+        And match response.article.title == 'Naevi'
     
     Scenario: Create and Delete an article
 
