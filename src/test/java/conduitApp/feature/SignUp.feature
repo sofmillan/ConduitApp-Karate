@@ -19,6 +19,7 @@ Feature: Sign up
             }
         }
         """ 
+        * print randomEmail
         When method Post
         Then status 201
         And match response ==
