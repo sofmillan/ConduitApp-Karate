@@ -1,3 +1,5 @@
+#run the scenarios in order, not randomly
+@paralle=false
 Feature: Sign up
 
     Background: Preconditions
