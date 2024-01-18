@@ -70,8 +70,8 @@ Feature: Tests for the home page
         Then status 200
         And match response.articles[0].favoritesCount == result
 
-    Scenario: Retry call
-        * configure retry = {count:10, interval:5000} //10 trials
+    # Scenario: Retry call
+    #     * configure retry = {count:10, interval:5000} //10 trials
 
         //The condition should be placed before the method
 
@@ -79,7 +79,7 @@ Feature: Tests for the home page
         Given path 'articles'
         And retry until response.articles[0].favoritesCount==1
         When method Get
-        Then status 200  
+        Then status 200
 
     Scenario: Sleep call
         * def sleep = function(pause){java.lang.Thread.sleep(pause)}
@@ -88,4 +88,20 @@ Feature: Tests for the home page
         Given path 'articles'
         When method Get
         * eval sleep(10000)
-        Then status 200  
+        Then status 200
+
+    Scenario: number to string
+        #* match 10 == '10' //fail    
+        * def foo = 10
+        * def json = {"bar":#(foo+'')}
+        * match json == {"bar":'10'}
+
+    Scenario: string to number
+        * def foo = '10'
+        * def json = {"bar":#(foo*1)}
+        * match json == {"bar":10} 
+    
+    Scenario: string to number 2
+        * def foo = '10'
+        * def json = {"bar":#(parseInt(foo))}
+        * match json == {"bar":10}         
