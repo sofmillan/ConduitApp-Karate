@@ -59,6 +59,12 @@
             <artifactId>cucumber-reporting</artifactId>
             <version>5.6.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.intuit.karate</groupId>
+            <artifactId>karate-gatling</artifactId>
+            <version>${karate.version}</version>
+            <scope>test</scope>
+        </dependency>  
 
     </dependencies>
 
@@ -122,7 +128,16 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>            
+            </plugin>  
+             <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>${gatling.plugin.version}</version>
+                <configuration>
+                    <simulationsFolder>src/test/java/conduitApp/performance</simulationsFolder>
+                    <configFolder>src/test/java/conduitApp/performance/data</configFolder>
+                </configuration>               
+            </plugin>          
         </plugins>        
     </build>       
     
