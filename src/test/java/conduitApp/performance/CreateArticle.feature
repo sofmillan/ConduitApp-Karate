@@ -20,4 +20,6 @@ Scenario: Create and Delete an article
     When method Delete
     Then status 204
     
-    
+    Given path 'articles', 'Gone-days854-3429'
+    When method Delete
+    Then status 204
