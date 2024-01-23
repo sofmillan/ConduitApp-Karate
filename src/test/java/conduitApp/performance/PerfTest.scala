@@ -13,8 +13,9 @@ class PerfTest extends Simulation {
 
   val protocol = karateProtocol(//Karate is handling the HTTP request for us 
     "/api/articles/{articleId}" -> Nil  //multiple requests of the same endpoint will be reported together
-
   ) 
+   protocol.nameResolver = (req, ctx) => req.getHeader("karateName")
+
   val csvFeeder = csv("articles.csv").circular()
   val tokenFeeder = Iterator.continually {
      Map("token" -> CreateTokens.getNextToken() )}

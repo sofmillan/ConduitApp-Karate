@@ -16,6 +16,7 @@ Scenario: Create and Delete an article
 
     Given path 'articles'
     And request articleRequestBody
+    And header karateName = 'Create article'
     When method Post
     Then status 201
     * def articleId = response.article.slug
